@@ -23,6 +23,13 @@ use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 class ProxyQuery implements ProxyQueryInterface
 {
     /**
+     * Disables DISTINCT in query logic.
+     *
+     * @var bool
+     */
+    public $disableDistinctBehavior = false;
+
+    /**
      * @var QueryBuilder
      */
     protected $queryBuilder;
@@ -310,9 +317,9 @@ class ProxyQuery implements ProxyQueryInterface
             $idxSelect .= ($idxSelect !== '' ? ', ' : '').$idSelect;
         }
         $queryBuilderId->select($idxSelect);
-		if (!($queryBuilderId->disableDistinctBehaviour ?? false)) {
-			$queryBuilderId->distinct();
-		}
+        if (!$this->disableDistinctBehavior) {
+            $queryBuilderId->distinct();
+        }
 
         // for SELECT DISTINCT, ORDER BY expressions must appear in idxSelect list
         /* Consider
