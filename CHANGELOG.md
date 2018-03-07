@@ -2,6 +2,63 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.4.2](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.4.1...3.4.2) - 2018-02-08
+### Changed
+- Switch all templates references to Twig namespaced syntax
+- Switch from templating service to sonata.templating
+
+### Fixed
+- Symfony 3.4 deprecation notice about getting private service AuditReader from the container
+- Hide selects added by OrderByToSelectWalker from hydration
+- Add orderBy field to select list for DataSourceIterator
+
+### Security
+- `setSortOrder` input is now validated
+
+## [3.4.1](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.4.0...3.4.1) - 2018-01-18
+### Fixed
+- typo in ListBuilder
+
+## [3.4.0](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.3.0...3.4.0) - 2018-01-18
+### Changed
+- Switched to templates from SonataAdminBundle
+
+### Deprecated
+- Association templates
+
+### Fixed
+- Fixed invalid PathExpression error in ProxyQuery
+
+## [3.3.0](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.2.0...3.3.0) - 2017-12-16
+### Added
+- Added refresh of edit button URL if item was replaced by add/list action
+
+### Fixed
+- Allow to `add` a new Model even if one is already selected
+- Fixed invalid PathExpression error in ProxyQuery
+- Issue with edit button always showing initial item in popup
+- Replaced FQCN strings with `::class` constants
+- deprecation about `Doctrine\ORM\Mapping\ClassMetadataInfo`
+
+## [3.2.0](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.1.7...3.2.0) - 2017-11-30
+### Added
+- Added edit button that opens in dialog instead of add if there is object already in sonata type model list
+- Added `ProxyQuery::setHint` which allow to pass Query hint in createQuery
+
+### Changed
+- Change minimum doctrine/orm version to 2.4.5 because QueryBuilder bug on PHP7 and HHVM
+
+### Fixed
+- don't display fields that are missing in child classes
+- warning about deprecate "e" modifier for `preg_replace`
+- Fix sorting by multiple columns in custom createQuery in PostgreSQL and MySQL 5.7
+- compatibility with Symfony 4
+- Fix CollectionType on Symfony 3 when no type is specified
+- It is now allowed to install Symfony 4
+
+### Removed
+- Support for old versions of PHP and Symfony.
+
 ## [3.1.7](https://github.com/sonata-project/SonataDoctrineORMAdminBundle/compare/3.1.6...3.1.7) - 2017-09-14
 ### Fixed
 - added the missing `sonata-ba-field-error` class to table fields with errors
